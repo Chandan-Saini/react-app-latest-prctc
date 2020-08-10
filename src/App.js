@@ -9,11 +9,18 @@ class App extends Component {
     {name:"Aman",age:20},
     {name:"Akku",age:24},
     {name:"chan",age:22}
-  ]
+  ],
+  otherState:'some other state'
 }
 
 eventHandler=()=>{
-  console.log("button clicked");
+   this.setState({
+     person: [
+       { name: "Aman updated", age: 20 },
+       { name: "Akku", age: 24 },
+       { name: "chan", age: 90 }
+     ]
+   })
 }
   render(){
     return (
