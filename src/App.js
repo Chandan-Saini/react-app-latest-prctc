@@ -16,12 +16,14 @@ otherState:"some text here"})
  const eventHandler =()=>{
    setPersonState({
      person: [
-       { name: "Aman updated", age: 20 },
+       { name: "Aman updated again", age: 20 },
        { name: "Akku", age: 24 },
        { name: "chan", age: 90 }
-     ]
+     ],
+     otherState:personState.otherState
    })
 }
+  console.log(personState);
     return (
       <div className="App">
         <h1>this is my first react app </h1>
