@@ -28,7 +28,7 @@ eventHandler=()=>{
         <h1>this is my first react app </h1>
         <button onClick={this.eventHandler}>Switch</button>
         <Person name={this.state.person[0].name} age={this.state.person[0].age} />
-        <Person name={this.state.person[1].name} age={this.state.person[1].age}> this is a text</Person>
+        <Person click={this.eventHandler}  name={this.state.person[1].name} age={this.state.person[1].age}> this is a text</Person>
         <Person name={this.state.person[2].name} age={this.state.person[2].age} />
       </div>
 
