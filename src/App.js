@@ -1,20 +1,19 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import './App.css';
 import Person from './Person/Person';
 
-class App extends Component {
+const app= (props)=> {
  
-  state={
-    person:[
-    {name:"Aman",age:20},
-    {name:"Akku",age:24},
-    {name:"chan",age:22}
-  ],
-  otherState:'some other state'
-}
 
-eventHandler=()=>{
-   this.setState({
+const [personState, setPerson] = useState({
+  person: [
+    { name: "Aman", age: 20 },
+    { name: "Akku", age: 24 },
+    { name: "chan", age: 22 }
+  ]})
+
+ const eventHandler =()=>{
+   setPerson({
      person: [
        { name: "Aman updated", age: 20 },
        { name: "Akku", age: 24 },
@@ -38,4 +37,4 @@ eventHandler=()=>{
   // return React.createElement("div",{className:"App"},React.createElement("h1",null,"Hi this is my first change"))
 }
 
-export default App;
+export default app;
