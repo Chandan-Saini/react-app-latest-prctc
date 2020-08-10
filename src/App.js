@@ -6,7 +6,7 @@ function App() {
     <div className="App">
        <h1>this is my first change live </h1>
       <Person name="Aman" age="23" />
-      <Person name="Chan" age="29" />
+      <Person name="Chan" age="29"> this is a text</Person>
       <Person name="Akku" age="28"/>
     </div>
    
