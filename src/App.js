@@ -13,10 +13,10 @@ class App extends Component {
   otherState:'some other state'
 }
 
-eventHandler=()=>{
+eventHandler=(newName)=>{
    this.setState({
      person: [
-       { name: "Aman updated", age: 20 },
+       { name: newName, age: 20 },
        { name: "Akku", age: 24 },
        { name: "chan", age: 90 }
      ]
@@ -26,9 +26,9 @@ eventHandler=()=>{
     return (
       <div className="App">
         <h1>this is my first react app </h1>
-        <button onClick={this.eventHandler}>Switch</button>
+        <button onClick={this.eventHandler.bind(this,"Updated")}>Switch</button>
         <Person name={this.state.person[0].name} age={this.state.person[0].age} />
-        <Person click={this.eventHandler}  name={this.state.person[1].name} age={this.state.person[1].age}> this is a text</Person>
+        <Person click={this.eventHandler.bind(this, "Updated 2")}  name={this.state.person[1].name} age={this.state.person[1].age}> this is a text</Person>
         <Person name={this.state.person[2].name} age={this.state.person[2].age} />
       </div>
 
