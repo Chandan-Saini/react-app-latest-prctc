@@ -1,8 +1,8 @@
 import React from "react"
 
-let person=()=>{
+let person=(props)=>{
     return (
-        <h3> This is from new {Math.random()*10} person component</h3>
+    <h3> My name is {props.name} nad age is {props.age}</h3>
     )
 }
 
