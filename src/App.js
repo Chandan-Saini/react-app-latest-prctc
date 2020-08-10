@@ -10,8 +10,10 @@ const [personState, setPersonState] = useState({
     { name: "Aman", age: 20 },
     { name: "Akku", age: 24 },
     { name: "chan", age: 22 }
-  ],
-otherState:"some text here"})
+  ]
+})
+
+const [otherState,setOtherState]=useState("this is other state")
 
  const eventHandler =()=>{
    setPersonState({
@@ -19,11 +21,11 @@ otherState:"some text here"})
        { name: "Aman updated again", age: 20 },
        { name: "Akku", age: 24 },
        { name: "chan", age: 90 }
-     ],
-     otherState:personState.otherState
+     ]
    })
 }
-  console.log(personState);
+   
+  console.log(personState,otherState);
     return (
       <div className="App">
         <h1>this is my first react app </h1>
