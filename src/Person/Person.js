@@ -1,6 +1,6 @@
 import React from "react"
 
-let person=(props)=>{
+const person=(props)=>{
     return (
   <div>
     <h3> My name is {props.name} and age is {props.age}</h3>
