@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import './App.css';
 import Person from './Person/Person';
 
-const app= (props)=> {
+const App= (props)=> {
  
 
-const [personState, setPerson] = useState({
+const [personState, setPersonState] = useState({
   person: [
     { name: "Aman", age: 20 },
     { name: "Akku", age: 24 },
     { name: "chan", age: 22 }
-  ]})
+  ],
+otherState:"some text here"})
 
  const eventHandler =()=>{
-   setPerson({
+   setPersonState({
      person: [
        { name: "Aman updated", age: 20 },
        { name: "Akku", age: 24 },
@@ -24,7 +25,7 @@ const [personState, setPerson] = useState({
     return (
       <div className="App">
         <h1>this is my first react app </h1>
-        <button onClick={this.eventHandler}>Switch</button>
+        <button onClick={eventHandler}>Switch</button>
         <Person name={personState.person[0].name} age={personState.person[0].age} />
         <Person name={personState.person[1].name} age={personState.person[1].age}> this is a text</Person>
         <Person name={personState.person[2].name} age={personState.person[2].age} />
@@ -35,4 +36,4 @@ const [personState, setPerson] = useState({
   // return React.createElement("div",{className:"App"},React.createElement("h1",null,"Hi this is my first change"))
 }
 
-export default app;
+export default App;
