@@ -34,7 +34,8 @@ class App extends Component {
   }
 
   deletePerson=(index)=>{
-    const persons= this.state.persons
+    // const persons= this.state.persons.slice() //this slice here is returning a new array so that we do not directly manuplate the original array, instead of slice we can also use spread operator "..."
+    const persons= [...this.state.persons]
     persons.splice(index,1)
     this.setState({persons:persons})
   }
