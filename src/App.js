@@ -6,9 +6,9 @@ class App extends Component {
  
   state={
     persons:[
-    {name:"Aman",age:20},
-    {name:"Akku",age:24},
-    {name:"chan",age:22}
+    {id:"jygy1",name:"Aman",age:20},
+    {id:"jygy2",name:"Akku",age:24},
+    {id:"jygy3",name:"chan",age:22}
   ],
   otherState:'some other state',
   showPersons:false
@@ -53,7 +53,7 @@ class App extends Component {
      if (this.state.showPersons) {
        persons= (
          this.state.persons.map((person,index)=>{
-           return <Person click={()=>this.deletePerson(index)} name={person.name} age={person.age} />
+           return <Person click={()=>this.deletePerson(index)} name={person.name} age={person.age} key={person.id} />
          })
        )
      }
