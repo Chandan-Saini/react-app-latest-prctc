@@ -5,7 +5,7 @@ import Person from './Person/Person';
 class App extends Component {
  
   state={
-    person:[
+    persons:[
     {name:"Aman",age:20},
     {name:"Akku",age:24},
     {name:"chan",age:22}
@@ -14,19 +14,11 @@ class App extends Component {
   showPersons:false
 }
 
-eventHandler=(newName)=>{
-   this.setState({
-     person: [
-       { name: newName, age: 20 },
-       { name: "Akku", age: 24 },
-       { name: "chan", age: 90 }
-     ]
-   })
-}
+
 
   nameChangedHandler = (event) => {
     this.setState({
-      person: [
+      persons: [
         { name: "Aman", age: 20 },
         { name: event.target.value, age: 24 },
         { name: "chan", age: 90 }
@@ -41,6 +33,12 @@ eventHandler=(newName)=>{
      })
   }
 
+  deletePerson=(index)=>{
+    const persons= this.state.persons
+    persons.splice(index,1)
+    this.setState({persons:persons})
+  }
+
   render(){
 
    const style={
@@ -53,8 +51,8 @@ eventHandler=(newName)=>{
 
      if (this.state.showPersons) {
        persons= (
-         this.state.person.map(person=>{
-           return <Person name={person.name} age={person.age} />
+         this.state.persons.map((person,index)=>{
+           return <Person click={()=>this.deletePerson(index)} name={person.name} age={person.age} />
          })
        )
      }
