@@ -49,23 +49,28 @@ eventHandler=(newName)=>{
      padding:"8px"
     }
 
+    let persons=null
+
+     if (this.state.showPersons) {
+       persons= (
+          <div>
+         <Person name={this.state.person[0].name} age={this.state.person[0].age} />
+         <Person change={this.nameChangedHandler} click={this.eventHandler.bind(this, "Updated 2")} name={this.state.person[1].name} age={this.state.person[1].age}> this is a text</Person>
+         <Person name={this.state.person[2].name} age={this.state.person[2].age} />
+        </div>
+       )
+     }
     return (
       <div className="App">
         <h1>this is my first react app </h1>
         <button style={style} onClick={this.togglePersonsHandler}>Switch Names</button>  {/* this is the way of passing value in the event handler using bind */}
-       
-       { this.state.showPersons ? <div>
-          <Person name={this.state.person[0].name} age={this.state.person[0].age} />
-          <Person change={this.nameChangedHandler} click={this.eventHandler.bind(this, "Updated 2")} name={this.state.person[1].name} age={this.state.person[1].age}> this is a text</Person>
-          <Person name={this.state.person[2].name} age={this.state.person[2].age} />
-       </div> : null
-       }
+       {persons}
       </div>
-
-    );
-  }
+        )
+  
 
   // return React.createElement("div",{className:"App"},React.createElement("h1",null,"Hi this is my first change"))
-}
+    }
+  }
 
 export default App;
