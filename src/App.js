@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import "./App.css";
+import classes from "./App.css";
 import Person from "./Person/Person";
-import Radium, { StyleRoot } from "radium";
 
 class App extends Component {
   state = {
@@ -49,11 +48,7 @@ class App extends Component {
       border: "2px solid yellow",
       padding: "8px",
       color: "white",
-      outline: "none",
-      ":hover": {
-        backgroundColor: "lightgreen",
-        color: "black",
-      },
+      outline: "none"
     };
 
     let persons = null;
@@ -71,35 +66,30 @@ class App extends Component {
         );
       });
       style.backgroundColor = "red";
-      style[":hover"] = {
-        backgroundColor: "salmon",
-        color: "black",
-      };
     }
 
-    const classes = [];
+    const classesArr = [];
     if (this.state.persons.length <= 2) {
-      classes.push("red");
+      classesArr.push("red");
     }
     if (this.state.persons.length <= 1) {
-      classes.push("bold");
+      classesArr.push("bold");
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
-          <h1 className={classes.join(" ")}>this is my first react app </h1>
+     
+        <div className={classes.App}>
+          <h1 className={classesArr.join(" ")}>this is my first react app </h1>
           <button style={style} onClick={this.togglePersonsHandler}>
             Show Names
           </button>{" "}
           {/* this is the way of passing value in the event handler using bind */}
           {persons}
         </div>
-      </StyleRoot>
     );
 
     // return React.createElement("div",{className:"App"},React.createElement("h1",null,"Hi this is my first change"))
   }
 }
 
-export default Radium(App);
+export default App;
