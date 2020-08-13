@@ -63,10 +63,19 @@ class App extends Component {
        )
        style.backgroundColor="red"
      }
+     
+     const classes=[]
+     if (this.state.persons.length <=2) {
+       classes.push("red")
+     }
+     if (this.state.persons.length <=1) {
+       classes.push("bold")
+     }
+
     return (
-      <div className="App">
-        <h1>this is my first react app </h1>
-        <button style={style} onClick={this.togglePersonsHandler}>Switch Names</button>  {/* this is the way of passing value in the event handler using bind */}
+      <div  className="App">
+        <h1 className={classes.join(" ")}>this is my first react app </h1>
+        <button style={style} onClick={this.togglePersonsHandler}>Show Names</button>  {/* this is the way of passing value in the event handler using bind */}
        {persons}
       </div>
         )
