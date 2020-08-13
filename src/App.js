@@ -46,9 +46,11 @@ class App extends Component {
   render(){
 
    const style={
-     backgroundColor:"yellow",
-     border:"2px solid red",
-     padding:"8px"
+     backgroundColor:"green",
+     border:"2px solid yellow",
+     padding:"8px",
+     color:"white",
+     outline:"none"
     }
 
     let persons=null
@@ -59,6 +61,7 @@ class App extends Component {
            return <Person change={(event)=>this.nameChangedHandler(event, person.id)} click={()=>this.deletePerson(index)} name={person.name} age={person.age} key={person.id} />
          })
        )
+       style.backgroundColor="red"
      }
     return (
       <div className="App">
