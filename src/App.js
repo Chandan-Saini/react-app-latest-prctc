@@ -45,19 +45,23 @@ class App extends Component {
   render() {
 
     let persons = null;
+    let btnClass=''
 
     if (this.state.showPersons) {
-      persons = this.state.persons.map((person, index) => {
-        return (
-          <Person
+      persons = (
+       <div>
+          {this.state.persons.map((person, index) => {
+        return  <Person
             change={(event) => this.nameChangedHandler(event, person.id)}
             click={() => this.deletePerson(index)}
             name={person.name}
             age={person.age}
             key={person.id}
-          />
-        );
-      });
+          />})
+      }; 
+      </div>
+      )
+       btnClass= classes.red
     }
 
     const classesArr = [];
@@ -72,7 +76,7 @@ class App extends Component {
      
         <div className={classes.App}>
           <h1 className={classesArr.join(" ")}>this is my first react app </h1>
-          <button  onClick={this.togglePersonsHandler}>
+          <button className={btnClass}   onClick={this.togglePersonsHandler}>
             Show Names
           </button>
           {/* this is the way of passing value in the event handler using bind */}
