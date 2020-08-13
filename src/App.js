@@ -43,13 +43,6 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: "green",
-      border: "2px solid yellow",
-      padding: "8px",
-      color: "white",
-      outline: "none"
-    };
 
     let persons = null;
 
@@ -65,7 +58,6 @@ class App extends Component {
           />
         );
       });
-      style.backgroundColor = "red";
     }
 
     const classesArr = [];
@@ -80,9 +72,9 @@ class App extends Component {
      
         <div className={classes.App}>
           <h1 className={classesArr.join(" ")}>this is my first react app </h1>
-          <button style={style} onClick={this.togglePersonsHandler}>
+          <button  onClick={this.togglePersonsHandler}>
             Show Names
-          </button>{" "}
+          </button>
           {/* this is the way of passing value in the event handler using bind */}
           {persons}
         </div>
