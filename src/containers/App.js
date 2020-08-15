@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import classes from "./App.module.css";
 import Persons from "../components/Persons/Persons";
-
+import Cockpit from "../components/Cockpit/Cockpit"
+import cockpit from "../components/Cockpit/Cockpit";
 class App extends Component {
   state = {
     persons: [
@@ -67,11 +68,7 @@ class App extends Component {
     return (
      
         <div className={classes.App}>
-          <h1 className={classesArr.join(" ")}>this is my first react app </h1>
-          <button className={btnClass}   onClick={this.togglePersonsHandler}>
-            Show Names
-          </button>
-          {/* this is the way of passing value in the event handler using bind */}
+         <cockpit togglePersonsHandler={this.togglePersonsHandler} />
           {persons}
         </div>
     );
