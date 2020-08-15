@@ -46,22 +46,18 @@ class App extends Component {
   render() {
 
     let persons = null;
-    let btnClass=''
+    
 
     if (this.state.showPersons) {
-      persons = (
-       <div>
+      persons =
         <Persons persons={this.state.persons} nameChangedHandler={this.nameChangedHandler} deletePerson={this.deletePerson} />
-      </div>
-      )
-       btnClass= classes.red
     }
 
 
     return (
      
         <div className={classes.App}>
-         <Cockpit persons={this.state.persons} togglePersonsHandler={this.togglePersonsHandler} />
+         <Cockpit showPersons={this.state.showPersons} persons={this.state.persons} togglePersonsHandler={this.togglePersonsHandler} />
           {persons}
         </div>
     );

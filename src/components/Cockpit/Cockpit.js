@@ -1,17 +1,23 @@
 import React from 'react'
-
+import cockpitCss from "./Cockpit.module.css"
 
 const cockpit=(props)=>{
 
     const classesArr = [];
-    if (props.persons.length <= 2) {
-        classesArr.push("red");
-    }
-    if (this.state.persons.length <= 1) {
-        classesArr.push("bold");
+    let btnClass=''
+    
+    if (props.showPersons) {
+        btnClass = cockpitCss.red
     }
 
-    return (<div>
+    if (props.persons.length <= 2) {
+        classesArr.push(cockpitCss.red);
+    }
+    if (props.persons.length <= 1) {
+        classesArr.push(cockpitCss.bold);
+    }
+
+    return (<div className={cockpitCss.Cockpit}>
         <h1 className={classesArr.join(" ")}>this is my first react app </h1>
         <button className={btnClass} onClick={props.togglePersonsHandler}>
             Show Names
