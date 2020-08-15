@@ -18,7 +18,7 @@ const cockpit=(props)=>{
     }
 
     return (<div className={cockpitCss.Cockpit}>
-        <h1 className={classesArr.join(" ")}>this is my first react app </h1>
+        <h1 className={classesArr.join(" ")}>{props.title}</h1>
         <button className={btnClass} onClick={props.togglePersonsHandler}>
             Show Names
           </button>
