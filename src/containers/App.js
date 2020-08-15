@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import classes from "./App.module.css";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit"
-import cockpit from "../components/Cockpit/Cockpit";
+
 class App extends Component {
   state = {
     persons: [
@@ -61,7 +61,7 @@ class App extends Component {
     return (
      
         <div className={classes.App}>
-         <cockpit persons={this.state.persons} togglePersonsHandler={this.togglePersonsHandler} />
+         <Cockpit persons={this.state.persons} togglePersonsHandler={this.togglePersonsHandler} />
           {persons}
         </div>
     );
