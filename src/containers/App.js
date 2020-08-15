@@ -57,18 +57,11 @@ class App extends Component {
        btnClass= classes.red
     }
 
-    const classesArr = [];
-    if (this.state.persons.length <= 2) {
-      classesArr.push("red");
-    }
-    if (this.state.persons.length <= 1) {
-      classesArr.push("bold");
-    }
 
     return (
      
         <div className={classes.App}>
-         <cockpit togglePersonsHandler={this.togglePersonsHandler} />
+         <cockpit persons={this.state.persons} togglePersonsHandler={this.togglePersonsHandler} />
           {persons}
         </div>
     );
