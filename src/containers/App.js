@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import classes from "./App.module.css";
 import Persons from "../components/Persons/Persons";
-import Cockpit from "../components/Cockpit/Cockpit"
+import Cockpit from "../components/Cockpit/Cockpit";
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    console.log("constroctor met");
+  }
+
   state = {
     persons: [
       { id: "jygy1", name: "Aman", age: 20 },
@@ -43,27 +48,44 @@ class App extends Component {
     this.setState({ persons: persons });
   };
 
+  static getDerivedStateFromProps(props, state) {
+    console.log("getDerivedStateFromProps met",props);
+    return state
+  }
+
+  componentDidMount() {
+    console.log("comp did mount");
+  }
+
   render() {
-
     let persons = null;
-    
-
+    console.log("render met");
     if (this.state.showPersons) {
-      persons =
-        <Persons persons={this.state.persons} nameChangedHandler={this.nameChangedHandler} deletePerson={this.deletePerson} />
+      persons = (
+        <Persons
+          persons={this.state.persons}
+          nameChangedHandler={this.nameChangedHandler}
+          deletePerson={this.deletePerson}
+        />
+      );
     }
 
-
     return (
-     
-        <div className={classes.App}>
-         <Cockpit title={this.props.appTitle} showPersons={this.state.showPersons} persons={this.state.persons} togglePersonsHandler={this.togglePersonsHandler} />
-          {persons}
-        </div>
+      <div className={classes.App}>
+        <Cockpit
+          title={this.props.appTitle}
+          showPersons={this.state.showPersons}
+          persons={this.state.persons}
+          togglePersonsHandler={this.togglePersonsHandler}
+        />
+        {persons}
+      </div>
     );
 
     // return React.createElement("div",{className:"App"},React.createElement("h1",null,"Hi this is my first change"))
   }
+
+ 
 }
 
 export default App;
