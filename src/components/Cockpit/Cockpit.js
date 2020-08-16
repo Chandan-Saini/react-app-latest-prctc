@@ -4,7 +4,10 @@ import cockpitCss from "./Cockpit.module.css"
 const Cockpit=(props)=>{
     useEffect(()=>{
         console.log("use Effect runs");
-    })
+        setTimeout(() => {
+            alert("hello")
+        }, 1000);
+    },[props.persons])
     const classesArr = [];
     let btnClass=''
     
