@@ -4,6 +4,7 @@ import styles from "./Person.module.css"
 class Person extends Component{
   
   render(){
+    console.log("Person.js render met");
     return(
       <div className = { styles.Person } >
         <h3 onClick={this.props.click}> My name is {this.props.name} and age is {this.props.age}</h3>
