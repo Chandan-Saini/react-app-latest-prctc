@@ -1,8 +1,10 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import cockpitCss from "./Cockpit.module.css"
 
-const cockpit=(props)=>{
-
+const Cockpit=(props)=>{
+    useEffect(()=>{
+        console.log("use Effect runs");
+    })
     const classesArr = [];
     let btnClass=''
     
@@ -25,4 +27,4 @@ const cockpit=(props)=>{
           </div>)
 }
 
-export default cockpit
+export default Cockpit
