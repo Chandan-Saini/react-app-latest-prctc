@@ -7,7 +7,10 @@ const Cockpit=(props)=>{
         setTimeout(() => {
             alert("hello")
         }, 1000);
-    },[props.persons])
+        return ()=>{
+            console.log("Cockpit cleanup code runs");
+        }
+    },[])
     const classesArr = [];
     let btnClass=''
     
