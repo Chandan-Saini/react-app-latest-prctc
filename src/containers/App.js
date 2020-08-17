@@ -6,7 +6,7 @@ import withClass from "../hoc/withClass"
 import Aux from "../hoc/Auxiliary"
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     console.log("constroctor met");
   }
 
@@ -18,8 +18,9 @@ class App extends Component {
     ],
     otherState: "some other state",
     showPersons: false,
-    showCockpit:true,
-    changeCounter:0
+    showCockpit: true,
+    changeCounter: 0,
+    authenticated: false
   };
 
   nameChangedHandler = (event, id) => {
@@ -32,8 +33,8 @@ class App extends Component {
 
     const persons = [...this.state.persons];
     persons[personIndex] = person;
-    this.setState((prevState,props)=>{
-      return { persons: persons,changeCounter:prevState.changeCounter+1}
+    this.setState((prevState, props) => {
+      return { persons: persons, changeCounter: prevState.changeCounter + 1 };
     });
   };
 
@@ -52,15 +53,18 @@ class App extends Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    console.log("getDerivedStateFromProps met",props);
-    return state
+    console.log("getDerivedStateFromProps met", props);
+    return state;
   }
 
   componentDidMount() {
     console.log("comp did mount");
   }
 
-  render() {
+  loginHandler=() =>{
+    this.setState({ authenticated: true });
+  }
+   render() {
     let persons = null;
     console.log("render met");
     if (this.state.showPersons) {
@@ -69,27 +73,35 @@ class App extends Component {
           persons={this.state.persons}
           nameChangedHandler={this.nameChangedHandler}
           deletePerson={this.deletePerson}
+          isAthenticated={this.state.authenticated}
         />
       );
     }
 
     return (
       <Aux>
-        <button onClick={()=>{this.setState({showCockpit:false})}} >Remove Cockpit</button>
-       { this.state.showCockpit? <Cockpit
-          title={this.props.appTitle}
-          showPersons={this.state.showPersons}
-          persons={this.state.persons}
-          togglePersonsHandler={this.togglePersonsHandler}
-        />:null}
+        <button
+          onClick={() => {
+            this.setState({ showCockpit: false });
+          }}
+        >
+          Remove Cockpit
+        </button>
+        {this.state.showCockpit ? (
+          <Cockpit
+            title={this.props.appTitle}
+            showPersons={this.state.showPersons}
+            persons={this.state.persons}
+            togglePersonsHandler={this.togglePersonsHandler}
+            login={this.loginHandler}
+          />
+        ) : null}
         {persons}
       </Aux>
     );
 
     // return React.createElement("div",{className:"App"},React.createElement("h1",null,"Hi this is my first change"))
   }
-
- 
 }
 
 export default withClass(App,classes.App);
