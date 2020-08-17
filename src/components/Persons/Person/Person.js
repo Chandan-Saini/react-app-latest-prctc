@@ -2,6 +2,8 @@ import React,{Component} from "react"
 import styles from "./Person.module.css"
 import Aux from "../../../hoc/Auxiliary"
 import withClass from "../../../hoc/withClass"
+import PropTypes from "prop-types"
+import Persons from "../Persons"
 class Person extends Component{
   
   render(){
@@ -11,10 +13,13 @@ class Person extends Component{
       <p>{this.props.children}</p>
       <input type="text" onChange={this.props.change} value={this.props.name} />
     </Aux>
-   
-    )
-
-    }
+  )  }
 }
 
+Person.propTypes={
+  click:PropTypes.func,
+  name:PropTypes.string,
+  age:PropTypes.number,
+  change:PropTypes.func
+}
 export default withClass(Person,styles.Person)
