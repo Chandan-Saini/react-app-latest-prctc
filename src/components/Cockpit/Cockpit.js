@@ -1,8 +1,10 @@
-import React,{useEffect,useRef} from 'react'
+import React,{useEffect,useRef, useContext} from 'react'
 import cockpitCss from "./Cockpit.module.css"
 import AuthContext from '../../context/auth-context'
 const Cockpit=(props)=>{
     const btnEle=useRef(null)
+
+    const authContxt=useContext(AuthContext)
     useEffect(()=>{
         console.log("use Effect runs");
         btnEle.current.click()
@@ -34,9 +36,8 @@ const Cockpit=(props)=>{
         >
           Show Names
         </button>
-        <AuthContext.Consumer>
-          {(context) => <button onClick={context.login}>Login</button>}
-        </AuthContext.Consumer>
+        
+          <button onClick={authContxt.login}>Login</button>
       </div>
     );
 }
