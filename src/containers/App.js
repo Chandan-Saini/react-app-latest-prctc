@@ -24,6 +24,7 @@ class App extends Component {
     authenticated: false
   };
 
+
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex((p) => {
       return p.id === id;

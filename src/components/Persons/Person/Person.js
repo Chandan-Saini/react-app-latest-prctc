@@ -5,20 +5,26 @@ import withClass from "../../../hoc/withClass"
 import PropTypes from "prop-types"
 import Persons from "../Persons"
 import AuthContext from '../../../context/auth-context'
+
+
 class Person extends Component{
   constructor(props){
     super(props)
     this.InputElRef=React.createRef()
   }
+
+  static contextType = AuthContext
+
   componentDidMount(){
     this.InputElRef.current.focus()
+    console.log(this.context.authenticated);
+
   }
   render(){ 
     console.log("Person.js render met");
     return( <Aux>
-      <AuthContext.Consumer>
-        { (context) => context.authenticated ? <p>Authenticated!</p> : <p>Please login</p>}
-      </AuthContext.Consumer>
+        { this.context.authenticated ? <p>Authenticated!</p> : <p>Please login</p>}
+      
       
       <h3 onClick={this.props.click}> My name is {this.props.name} and age is {this.props.age}</h3>
       <p>{this.props.children}</p>
